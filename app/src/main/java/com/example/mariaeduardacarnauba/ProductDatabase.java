@@ -14,11 +14,14 @@ public abstract class ProductDatabase extends RoomDatabase {
     public static synchronized ProductDatabase getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(
-                            context.getApplicationContext(), ProductDatabase.class, "product-database")
+                            context.getApplicationContext(),
+                            ProductDatabase.class,
+                            "product-database")
                     .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
                     .build();
         }
+
         return instance;
     }
 }
